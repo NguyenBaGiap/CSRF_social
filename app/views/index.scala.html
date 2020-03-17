@@ -1,0 +1,13 @@
+@import support.UserForm
+@(form: Form[UserForm])(implicit request: Request[AnyContent],messagesProvider: MessagesProvider)
+
+@main("play-scala-secure-session-example") {
+
+    @helper.form(routes.AuthenticateController.verify) {
+        @helper.CSRF.formField
+        @helper.inputText(form("username"))
+        @helper.inputText(form("password"))
+        <input type="submit"/>
+    }
+
+}
